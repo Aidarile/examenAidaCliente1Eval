@@ -1,0 +1,41 @@
+<div class="container-fluid p-5">
+    @defer (when apiData) {
+        <div id="card" class="row">  
+        <div class="col-12 my-2">
+
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <ngb-pagination
+                    [collectionSize]="apiData.meta.totalItems"
+                    [pageSize]="16"
+                    [(page)]="currentPage"
+                    [maxSize]="4"
+                    (pageChange)="loadPersonajes()"
+                    [rotate]="true"
+                    [ellipses]="false"
+                    [boundaryLinks]="true"></ngb-pagination>
+                </div>
+                </div>
+            </div>
+
+            @for (personaje of apiData.items; track personaje.id) {
+                <div class="col-md-3 my-2">
+                    <div class="card shadow" [routerLink]="'/personajes-detail/' + personaje.id">
+                        <img [src]="personaje.image" [alt]="personaje.name" class="card-img-top">
+                        <div class="card-header text-center">
+                            <div class="card-title py-2 px-1">
+                                <h5> {{personaje.name}} </h5>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+        </div>
+
+    } @placeholder (minimum 500ms) {
+        <div class="text-center text-primary"> ...Cargando... </div>
+    }
+
+            

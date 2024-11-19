@@ -1,0 +1,6 @@
+img:hover {
+    transform: scale(105%);
+    filter: sepia(90%);
+    transition-duration: 0.5s;
+    cursor: pointer;
+    }

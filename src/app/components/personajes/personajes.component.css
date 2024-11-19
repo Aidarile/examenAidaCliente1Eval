@@ -1,0 +1,21 @@
+img {
+    height: 35em;
+    width: auto;
+    background: linear-gradient(rgb(218, 214, 214), rgb(255, 145, 2));  
+}
+
+.card-header {
+    background: rgb(255, 145, 2);
+    color: white;
+}
+
+.card:hover {
+    cursor: pointer;
+    transition-duration: 0.8s;
+    transform: scale(105%);
+}
+
+img:hover {
+    transform: scale(105%);
+    transition-duration: 0.4s;
+}

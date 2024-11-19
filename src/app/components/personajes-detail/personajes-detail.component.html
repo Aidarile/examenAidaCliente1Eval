@@ -1,0 +1,54 @@
+@defer (when personaje) {
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <h3 class="text-primary"> {{personaje.name}} </h3>
+                <br>
+                <h3 class="text-primary"> Gender </h3>
+                <small> <strong>{{personaje.gender}} </strong> </small>
+
+                <h3 class="text-primary"> Race </h3>
+                <small> <strong>{{personaje.race}}</strong>  </small>
+
+                <h3 class="text-primary"> Affiliation </h3>
+                <small> <strong>{{personaje.affiliation}}</strong> </small>
+
+                <h3 class="text-primary"> Ki </h3>
+                <small class="text-danger"> <strong>{{personaje.ki}}</strong> </small>
+
+                <h3 class="text-primary"> Max Ki </h3>
+                <small class="text-success"> <strong>{{personaje.maxKi}}</strong>  </small>
+            </div>
+
+            <div class="col">
+                <img class="img-fluid" src="{{ personaje.image }}" alt="{{ personaje.name }}" id="imagetransform">
+            </div>
+
+            <div class="col text-center text-primary">
+                <small> {{personaje.description}} </small>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="row justify-content-center">
+              <div class="card-title text-center my-4">
+                <h3>Transformations</h3>
+                <div class="row">
+                    @for (transforms of personaje.transformations; track $index) {
+                        @if (transforms) {
+                            <div class="col-md-2 p-2">
+                                            <img class="img-fluid" [src]="transforms.image" [alt]="transforms.name" >
+                                        </div>
+                           
+                        } 
+                    }
+                </div>
+              </div> 
+            </div>
+          </div>
+    </div>
+
+} @placeholder (minimum 500ms) {
+<div class="text-center text-primary">...Cargando...</div>
+}
